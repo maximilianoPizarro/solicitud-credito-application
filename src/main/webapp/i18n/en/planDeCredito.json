@@ -1,0 +1,29 @@
+{
+  "solicitudCreditoApp": {
+    "planDeCredito": {
+      "home": {
+        "title": "Plan De Creditos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Plan De Credito",
+        "createOrEditLabel": "Create or edit a Plan De Credito",
+        "notFound": "No Plan De Creditos found"
+      },
+      "created": "A new Plan De Credito is created with identifier { param }",
+      "updated": "A Plan De Credito is updated with identifier { param }",
+      "deleted": "A Plan De Credito is deleted with identifier { param }",
+      "delete": {
+        "question": "Are you sure you want to delete Plan De Credito { id }?"
+      },
+      "detail": {
+        "title": "Plan De Credito"
+      },
+      "id": "ID",
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "tipo": "Tipo",
+      "tasaInteres": "Tasa Interes",
+      "plazoMaximo": "Plazo Maximo",
+      "cuenta": "Cuenta"
+    }
+  }
+}

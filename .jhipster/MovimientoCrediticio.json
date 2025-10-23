@@ -1,0 +1,49 @@
+{
+  "annotations": {
+    "changelogDate": "20251023190943"
+  },
+  "applications": "*",
+  "documentation": "Representa una transacción en la cuenta de crédito (un pago, un cargo, una cuota, etc.).",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "fechaMovimiento",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "tipo",
+      "fieldType": "TipoMovimiento",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "PAGO,CARGO,CUOTA,INTERESES,COMISION"
+    },
+    {
+      "fieldName": "monto",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "descripcion",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "referenciaExterna",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
+    }
+  ],
+  "name": "MovimientoCrediticio",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "numeroCuenta",
+      "otherEntityName": "cuenta",
+      "otherEntityRelationshipName": "movimiento",
+      "relationshipName": "cuenta",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

@@ -1,0 +1,12 @@
+{
+  "solicitudCreditoApp": {
+    "EstadoCuenta": {
+      "null": "",
+      "ACTIVA": "ACTIVA",
+      "VENCIDA": "VENCIDA",
+      "CANCELADA": "CANCELADA",
+      "PAGADA": "PAGADA",
+      "COBRANZA": "COBRANZA"
+    }
+  }
+}
