@@ -1,0 +1,93 @@
+// ---------------------------
+// 1. ENTIDADES DE DOMINIO
+// ---------------------------
+
+/**
+ * Representa al cliente del banco.
+ */
+entity Cliente {
+    numeroCliente Long required unique
+    nombre String required
+    apellido String required
+    fechaNacimiento LocalDate required
+    tipoDocumento TipoDocumento required
+    numeroDocumento String required unique
+    email String unique
+    telefono String
+}
+
+/**
+ * Representa un producto o plan de crédito ofrecido por el banco.
+ */
+entity PlanDeCredito {
+    nombre String required unique
+    descripcion TextBlob
+    tipo TipoPlan required
+    tasaInteres BigDecimal required
+    plazoMaximo Integer
+}
+
+/**
+ * Representa una instancia específica de un crédito o producto financiero
+ * que un cliente posee. Es el corazón del historial.
+ */
+entity Cuenta {
+    numeroCuenta String required unique
+    fechaApertura ZonedDateTime required
+    montoOtorgado BigDecimal required
+    saldoPendiente BigDecimal
+    estado EstadoCuenta required
+    fechaCierre ZonedDateTime
+}
+
+/**
+ * Representa una transacción en la cuenta de crédito (un pago, un cargo, una cuota, etc.).
+ */
+entity MovimientoCrediticio {
+    fechaMovimiento ZonedDateTime required
+    tipo TipoMovimiento required
+    monto BigDecimal required
+    descripcion String
+    referenciaExterna String unique
+}
+
+// ---------------------------
+// 2. ENUMS (Tipos predefinidos)
+// ---------------------------
+
+enum TipoDocumento {
+    DNI, PASAPORTE, RESIDENCIA, OTRO
+}
+
+enum TipoPlan {
+    HIPOTECARIO, PERSONAL, AUTOMOTRIZ, TARJETA_DE_CREDITO, ROTATIVO
+}
+
+enum EstadoCuenta {
+    ACTIVA, VENCIDA, CANCELADA, PAGADA, COBRANZA
+}
+
+enum TipoMovimiento {
+    PAGO, CARGO, CUOTA, INTERESES, COMISION
+}
+
+// ---------------------------
+// 3. RELACIONES
+// ---------------------------
+
+relationship OneToMany {
+    Cliente{cuenta(numeroCuenta)} to Cuenta{cliente(numeroDocumento)}
+    PlanDeCredito{cuenta(numeroCuenta)} to Cuenta{plan(nombre)}
+    Cuenta{movimiento(fechaMovimiento)} to MovimientoCrediticio{cuenta(numeroCuenta)}
+}
+
+// ---------------------------
+// 4. OPCIONES DE GENERACIÓN
+// ---------------------------
+
+// Aplica DTOs para todas las entidades para un mejor manejo de datos
+dto all with mapstruct
+// Aplica servicio (Service Class) a todas las entidades para la lógica de negocio
+service all with serviceClass
+// Paginación en las listas de movimientos y cuentas
+paginate MovimientoCrediticio, Cuenta with pagination
