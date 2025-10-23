@@ -7,6 +7,7 @@ import jakarta.json.bind.annotation.JsonbDateFormat;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import io.swagger.annotations.ApiModel;
 
 /**
  * A DTO for the {@link com.credito.webapp.domain.Cliente} entity.

@@ -6,7 +6,7 @@ import jakarta.persistence.Lob;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
-
+import io.swagger.annotations.ApiModel;
 /**
  * A DTO for the {@link com.credito.webapp.domain.PlanDeCredito} entity.
  */
