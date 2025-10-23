@@ -1,0 +1,29 @@
+{
+  "solicitudCreditoApp": {
+    "movimientoCrediticio": {
+      "home": {
+        "title": "Movimiento Crediticios",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Movimiento Crediticio",
+        "createOrEditLabel": "Create or edit a Movimiento Crediticio",
+        "notFound": "No Movimiento Crediticios found"
+      },
+      "created": "A new Movimiento Crediticio is created with identifier { param }",
+      "updated": "A Movimiento Crediticio is updated with identifier { param }",
+      "deleted": "A Movimiento Crediticio is deleted with identifier { param }",
+      "delete": {
+        "question": "Are you sure you want to delete Movimiento Crediticio { id }?"
+      },
+      "detail": {
+        "title": "Movimiento Crediticio"
+      },
+      "id": "ID",
+      "fechaMovimiento": "Fecha Movimiento",
+      "tipo": "Tipo",
+      "monto": "Monto",
+      "descripcion": "Descripcion",
+      "referenciaExterna": "Referencia Externa",
+      "cuenta": "Cuenta"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "annotations": {
+    "changelogDate": "20251023190941"
+  },
+  "applications": "*",
+  "documentation": "Representa un producto o plan de crédito ofrecido por el banco.",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "descripcion",
+      "fieldType": "TextBlob"
+    },
+    {
+      "fieldName": "tipo",
+      "fieldType": "TipoPlan",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "HIPOTECARIO,PERSONAL,AUTOMOTRIZ,TARJETA_DE_CREDITO,ROTATIVO"
+    },
+    {
+      "fieldName": "tasaInteres",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "plazoMaximo",
+      "fieldType": "Integer"
+    }
+  ],
+  "name": "PlanDeCredito",
+  "relationships": [
+    {
+      "otherEntityField": "numeroCuenta",
+      "otherEntityName": "cuenta",
+      "otherEntityRelationshipName": "plan",
+      "relationshipName": "cuenta",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

@@ -1,0 +1,12 @@
+{
+  "solicitudCreditoApp": {
+    "TipoMovimiento": {
+      "null": "",
+      "PAGO": "PAGO",
+      "CARGO": "CARGO",
+      "CUOTA": "CUOTA",
+      "INTERESES": "INTERESES",
+      "COMISION": "COMISION"
+    }
+  }
+}

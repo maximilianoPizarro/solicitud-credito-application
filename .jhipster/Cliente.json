@@ -1,0 +1,63 @@
+{
+  "annotations": {
+    "changelogDate": "20251023190940"
+  },
+  "applications": "*",
+  "documentation": "Representa al cliente del banco.",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "numeroCliente",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "nombre",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "apellido",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "fechaNacimiento",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "tipoDocumento",
+      "fieldType": "TipoDocumento",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "DNI,PASAPORTE,RESIDENCIA,OTRO"
+    },
+    {
+      "fieldName": "numeroDocumento",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "telefono",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Cliente",
+  "relationships": [
+    {
+      "otherEntityField": "numeroCuenta",
+      "otherEntityName": "cuenta",
+      "otherEntityRelationshipName": "cliente",
+      "relationshipName": "cuenta",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

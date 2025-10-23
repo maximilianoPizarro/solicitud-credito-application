@@ -1,0 +1,11 @@
+{
+  "solicitudCreditoApp": {
+    "TipoDocumento": {
+      "null": "",
+      "DNI": "DNI",
+      "PASAPORTE": "PASAPORTE",
+      "RESIDENCIA": "RESIDENCIA",
+      "OTRO": "OTRO"
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "annotations": {
+    "changelogDate": "20251023190942"
+  },
+  "applications": "*",
+  "documentation": "Representa una instancia específica de un crédito o producto financiero\\nque un cliente posee. Es el corazón del historial.",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "numeroCuenta",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "fechaApertura",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "montoOtorgado",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "saldoPendiente",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "estado",
+      "fieldType": "EstadoCuenta",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "ACTIVA,VENCIDA,CANCELADA,PAGADA,COBRANZA"
+    },
+    {
+      "fieldName": "fechaCierre",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "name": "Cuenta",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "fechaMovimiento",
+      "otherEntityName": "movimientoCrediticio",
+      "otherEntityRelationshipName": "cuenta",
+      "relationshipName": "movimiento",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "numeroDocumento",
+      "otherEntityName": "cliente",
+      "otherEntityRelationshipName": "cuenta",
+      "relationshipName": "cliente",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nombre",
+      "otherEntityName": "planDeCredito",
+      "otherEntityRelationshipName": "cuenta",
+      "relationshipName": "plan",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}
